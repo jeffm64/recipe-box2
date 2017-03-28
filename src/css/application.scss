@@ -1,0 +1,267 @@
+/*//////////////////////////////////////
+	UNIVERSAL
+//////////////////////////////////////*/
+
+* {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-weight: normal;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+}
+
+img,
+video {
+	max-width: 100%;
+}
+
+input, button, select, textarea, submit {
+	border: none;
+}
+
+/* ---- Float clearfix ---- */
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+/*//////////////////////////////////////
+	TEXT TRANSFORM
+//////////////////////////////////////*/
+
+/*Uppercase*/
+h3 {
+  text-transform: uppercase;
+}
+
+/*Lowercase*/
+
+
+
+/*//////////////////////////////////////
+	FONTS
+//////////////////////////////////////*/
+
+/*BUNGEE INLINE*/
+h2 {
+  font-family: 'Bungee Inline', cursive;
+}
+
+/*MULI*/
+.ingredients {
+  font-family: 'Muli', sans-serif;
+}
+
+
+/*//////////////////////////////////////
+	COLORS
+//////////////////////////////////////*/
+
+/*DARK PURPLE*/
+.btn,
+.popup {
+  color: #0e0B16;
+}
+
+.site-container,
+.recipe,
+li,
+.add-edit,
+.close {
+  background-color: #0e0B16;
+}
+
+/*PURPLE*/
+.ingredients {
+  background-color: #4717F6;
+}
+
+/*STARK WHITE*/
+.site-container,
+a,
+.add-edit,
+.close {
+  color: #E7DFDD;
+}
+
+.render-target,
+.btn,
+.popup {
+  background-color: #E7DFDD;
+}
+
+
+
+/*//////////////////////////////////////
+	RECIPE
+//////////////////////////////////////*/
+
+@mixin shadow-rounded {
+-webkit-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+  border-radius: 30px 30px 30px 30px;
+  -moz-border-radius: 30px 30px 30px 30px;
+  -webkit-border-radius: 30px 30px 30px 30px;
+  border: 0px solid #000000;
+}
+
+@mixin shadow {
+  -webkit-box-shadow: 0px 0px 17px 1px rgba(122,122,122,0.6);
+  -moz-box-shadow: 0px 0px 17px 1px rgba(122,122,122,0.6);
+  box-shadow: 0px 0px 17px 1px rgba(122,122,122,0.6);
+}
+
+.site-content {
+  max-width: 1000px;
+  margin: 70px auto 30px auto;
+}
+
+.recipe-container {
+  margin-bottom: 15px;
+  @include shadow;
+}
+
+.render-target {
+  margin: 20px auto;
+  padding: 15px;
+  text-align: center;
+  @include shadow;
+}
+
+.recipe {
+  padding: 0 15px;
+}
+
+h2 {
+  font-size: 32px;
+  text-align: left;
+  text-shadow: 0px 0px 5px rgba(150, 150, 150, 0.7);
+}
+
+.ingredients {
+  padding: 20px 20px 40px 20px;
+}
+
+h3 {
+  font-size: 27px;
+  padding-bottom: 10px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid gray;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px;
+  @include shadow-rounded;
+}
+
+.buttons {
+  padding-top: 25px;
+}
+
+.btn,
+.add-edit,
+.close {
+  padding: 10px;
+  @include shadow;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.add-recipe {
+  font-size: 20px;
+  margin: 0;
+}
+
+h4 {
+  font-size: 21px;
+  padding-bottom: 8px;
+}
+
+
+
+/*//////////////////////////////////////
+	POPUP
+//////////////////////////////////////*/
+
+.overlay {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:#888;
+    opacity:0.5;
+    display:block;
+    z-index:1000;
+}
+
+.popup {
+  position: fixed;
+  width:600px;
+  height:450px;
+  top: 50%;
+  left: 50%;
+  margin-top: -225px;
+  margin-left: -300px;
+  z-index: 1002;
+  padding: 40px 50px;
+  @include shadow-rounded;
+}
+
+.popup-recipe,
+.popup-ingredients {
+  padding-bottom: 20px;
+}
+
+input,
+textarea {
+  padding: 8px;
+  width: 100%;
+}
+
+.popup-buttons {
+  margin-top: 15px;
+}
+
+.add-edit {
+  margin-right: 10px;
+}
+
+
+
+
+
+/*//////////////////////////////////////
+////////////////////////////////////////
+	MEDIA QUERIES
+////////////////////////////////////////
+//////////////////////////////////////*/
+
+@media (min-width: 980px) {}
