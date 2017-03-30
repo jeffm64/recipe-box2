@@ -1,6 +1,14 @@
 var React = require("react");
 
 var EditRecipe = React.createClass({
+  
+    ingredientsList: function() {
+          var ingredients = this.props.recipe[0].ingredients.map(function(ingredient) {
+            return " " + ingredient;
+          });
+          return ingredients;
+        },
+  
     render: function() {
         return (
             <div>
@@ -11,11 +19,11 @@ var EditRecipe = React.createClass({
                   <h3 className="popup-title">Edit a recipe</h3>
                   <div className="popup-recipe">
                     <h4>Recipe</h4>
-                    <input />
+                    <input defaultValue={this.props.recipe[0].name} />
                   </div>
                   <div className="popup-ingredients">
                     <h4>Ingredients</h4>
-                    <textarea rows="3"></textarea>
+                    <textarea rows="3" defaultValue={this.ingredientsList()}  ></textarea>
                   </div>
                   <div className="popup-buttons">
                     <button className="add-edit">Edit Recipe</button>

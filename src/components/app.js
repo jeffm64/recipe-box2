@@ -5,7 +5,7 @@ var AddRecipe = require("./add-recipe/add-recipe.js");
 var EditRecipe = require("./recipe-box/edit-recipe");
 
 var Recipes = [
-    {name: "spaghetti", ingredients: [ "noodles ", "tomato sauce ", "meatballs " ] }
+    {name: "spaghetti", ingredients: [ "noodles", "tomato sauce", "meatballs" ] }
 ];
 
 //insert <AddRecipe /> to see the box for adding recipe, similar for editing recipe
@@ -15,7 +15,6 @@ var FullRecipe = React.createClass({
         return (
             <div>
                 <RecipeBox recipe={Recipes} />
-                <EditRecipe recipe={Recipes} />
             </div>
         );
     }
