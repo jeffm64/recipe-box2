@@ -11,10 +11,20 @@ var Recipes = [
 //insert <AddRecipe /> to see the box for adding recipe, similar for editing recipe
 
 var FullRecipe = React.createClass({
+    
+    getInitialState: function() {
+        return {
+            recipes: [],
+            addRecipeVisibility: false,
+            editRecipeVisibility: false
+        };
+    },
+    
     render: function() {
         return (
             <div>
                 <RecipeBox recipe={Recipes} />
+                <button className="add-recipe btn">Add Recipe</button>
             </div>
         );
     }
@@ -24,26 +34,3 @@ ReactDOM.render(
   <FullRecipe />,
   document.querySelector(".render-target")
 );
-
-
-
-/*
-var React = require("react");
-var ReactDOM = require("react-dom");
-var RecipeBox = require("./recipe-box/recipe-box.js");
-
-var FullRecipe = React.createClass({
-    render: function() {
-        return (
-            <div>
-                <RecipeBox />
-            </div>
-        );
-    }
-});
-
-ReactDOM.render(
-  <FullRecipe />,
-  document.querySelector(".render-target")
-);
-*/
