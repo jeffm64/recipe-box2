@@ -11,7 +11,7 @@ var AddRecipe = React.createClass({
                   <h3 className="popup-title">Add a recipe</h3>
                   <div className="popup-recipe">
                     <h4>Recipe</h4>
-                    <input />
+                    <input type="text" value={this.state.value} onChange={this.props.handleChange} />
                   </div>
                   <div className="popup-ingredients">
                     <h4>Ingredients</h4>
