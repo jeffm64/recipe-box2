@@ -20,11 +20,22 @@ var FullRecipe = React.createClass({
         };
     },
     
+    toggleVisibleAdd: function() {
+        
+        if(this.state.addRecipeVisibility) {
+            this.setState({ addRecipeVisibility: false });
+        }
+        else {
+            this.setState({ addRecipeVisibility: true });
+        }
+    },
+    
     render: function() {
         return (
             <div>
-                <RecipeBox recipe={Recipes} />
-                <button className="add-recipe btn">Add Recipe</button>
+                <RecipeBox recipe={Recipes} openPopup={this.toggleVisibleEdit} />
+                {this.state.addRecipeVisibility ? <AddRecipe closePopup={this.toggleVisibleAdd.bind(this)} /> : undefined}
+                <button className="add-recipe btn" onClick={this.toggleVisibleAdd} >Add Recipe</button>
             </div>
         );
     }

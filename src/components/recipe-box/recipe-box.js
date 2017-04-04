@@ -1,6 +1,5 @@
 var React = require("react");
 var jQuery = require("jquery");
-var UserInput = require("./user-input");
 
 
 var RecipeBox = React.createClass({
@@ -23,7 +22,10 @@ var RecipeBox = React.createClass({
                 <div className="ingredients">
                   <h3>Ingredients</h3>
                   {this.NumberList()}
-                  <UserInput />
+                  <div className="buttons">
+                    <button className="edit btn"  onClick={this.props.openPopup} >Edit</button>
+                    <button className="delete btn">Delete</button>
+                  </div>
                 </div>
             </div>
             );

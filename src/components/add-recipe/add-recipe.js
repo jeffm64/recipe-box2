@@ -4,7 +4,7 @@ var AddRecipe = React.createClass({
     render: function() {
         return (
             <div>
-                <div className="overlay">
+                <div className="overlay"  onClick={this.props.closePopup} >
                 </div>
             
                 <div className="popup">
@@ -19,7 +19,7 @@ var AddRecipe = React.createClass({
                   </div>
                   <div className="popup-buttons">
                     <button className="add-edit">Add Recipe</button>
-                    <button className="close">Close</button>
+                    <button className="close" onClick={this.props.closePopup} >Close</button>
                   </div>
               </div>
           </div>
