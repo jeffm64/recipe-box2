@@ -14,32 +14,36 @@ var FullRecipe = React.createClass({
     
     getInitialState: function() {
         return {
-            recipes: [],
             addRecipeVisibility: false,
             editRecipeVisibility: false,
-            value: ""
+            value: "",
+            valueIngredients: ""
         };
     },
     
     toggleVisibleAdd: function() {
         
         if(this.state.addRecipeVisibility) {
-            this.setState({ addRecipeVisibility: false });
+            this.setState({ addRecipeVisibility: false, value: "", valueIngredients: "" });
         }
         else {
             this.setState({ addRecipeVisibility: true });
         }
     },
     
-    handleChange: function(event) {
+    handleChangeName: function(event) {
         this.setState({value: event.target.value});
+    },
+    
+    handleChangeIngredients: function(event) {
+        this.setState({valueIngredients: event.target.value});
     },
     
     render: function() {
         return (
             <div>
                 <RecipeBox recipe={Recipes} openPopup={this.toggleVisibleEdit} />
-                {this.state.addRecipeVisibility ? <AddRecipe closePopup={this.toggleVisibleAdd.bind(this)} handleChange={this.handleChange} /> : undefined}
+                {this.state.addRecipeVisibility ? <AddRecipe closePopup={this.toggleVisibleAdd.bind(this)} recipeName={this.state.value} handleChangeName={this.handleChangeName} recipeIngredients={this.state.valueIngredients} handleChangeIngredients={this.handleChangeIngredients} recipe={Recipes} /> : undefined}
                 <button className="add-recipe btn" onClick={this.toggleVisibleAdd} >Add Recipe</button>
             </div>
         );
