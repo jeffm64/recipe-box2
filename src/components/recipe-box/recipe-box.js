@@ -11,7 +11,7 @@ multiple recipe boxes. EX: {this.state.list.map((item, key) => <Recipe name={ite
 var RecipeBox = React.createClass({
   
     NumberList: function() {
-        var recipeItems = this.props.recipe[0].ingredients.map(function(ingredient) {
+        var recipeItems = this.props.ingredients.map(function(ingredient) {
         return <li>{ingredient}</li>;
       });
         return (
@@ -24,7 +24,7 @@ var RecipeBox = React.createClass({
         return (
             <div className="full-recipe">
                 <div className="recipe">
-                  <h2><a href="#">{this.props.recipe[0].name}</a></h2>
+                  <h2><a href="#">{this.props.name}</a></h2>
                 </div>
                 <div className="ingredients">
                   <h3>Ingredients</h3>
