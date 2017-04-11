@@ -6,6 +6,7 @@ var EditRecipe = require("./recipe-box/edit-recipe");
 
 var Recipes = [
     {name: "spaghetti", ingredients: [ "noodles", "tomato sauce", "meatballs" ] },
+    {name: "Omelet", ingredients: [ "eggs", "cheese" ]}
 ];
 
 //insert <EditRecipe /> to see the box for editing recipe
@@ -17,7 +18,8 @@ var FullRecipe = React.createClass({
             addRecipeVisibility: false,
             editRecipeVisibility: false,
             value: "",
-            valueIngredients: ""
+            valueIngredients: "",
+            updater: ""
         };
     },
     
@@ -39,11 +41,15 @@ var FullRecipe = React.createClass({
         this.setState({valueIngredients: event.target.value});
     },
     
+    generalUpdate: function() {
+        this.setState({updater: ""});
+    },
+    
     render: function() {
         return (
             <div>
                 {Recipes.map(function(item, key) {
-                    return <RecipeBox recipe={Recipes} name={item.name} ingredients={item.ingredients} key={key} />;
+                    return <RecipeBox recipe={Recipes} name={item.name} ingredients={item.ingredients} key={key}  />;
                 })}
                 {this.state.addRecipeVisibility ? <AddRecipe closePopup={this.toggleVisibleAdd.bind(this)} recipeName={this.state.value} handleChangeName={this.handleChangeName} recipeIngredients={this.state.valueIngredients} handleChangeIngredients={this.handleChangeIngredients} recipe={Recipes} /> : undefined}
                 <button className="add-recipe btn" onClick={this.toggleVisibleAdd} >Add Recipe</button>

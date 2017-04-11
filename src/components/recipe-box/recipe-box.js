@@ -1,14 +1,26 @@
 var React = require("react");
 var jQuery = require("jquery");
 
-/*
-Needs to take the input creates from add-recipe popup and rerender the recipes so as to include the newly
-added one. In the main app, when rendering RecipeBox. THAT needs to use the .map method so as to create
-multiple recipe boxes. EX: {this.state.list.map((item, key) => <Recipe name={item.name} key={key}/>)}
-*/
-
 
 var RecipeBox = React.createClass({
+  
+    removeRecipe: function() {
+
+      var count = 0;
+      var propName = this.props.name;
+      var propRecipe = this.props.recipe;
+      
+      this.props.recipe.map(function (recipe) {
+        if (recipe.name === propName ) {
+          propRecipe.splice(count, 1);
+        } else {
+          count ++;
+        }
+      });
+      alert(this.props.recipe);
+      
+      
+    },
   
     NumberList: function() {
         var recipeItems = this.props.ingredients.map(function(ingredient) {
@@ -23,15 +35,16 @@ var RecipeBox = React.createClass({
     render: function() {
         return (
             <div className="full-recipe">
-                <div className="recipe">
-                  <h2><a href="#">{this.props.name}</a></h2>
+                <div className="recipe"><a href="#">
+                  <h2>{this.props.name}</h2>
+                  </a>
                 </div>
                 <div className="ingredients">
                   <h3>Ingredients</h3>
                   {this.NumberList()}
                   <div className="buttons">
                     <button className="edit btn"  onClick={this.props.openPopup} >Edit</button>
-                    <button className="delete btn">Delete</button>
+                    <button className="delete btn" onClick={this.removeRecipe} >Delete</button>
                   </div>
                 </div>
             </div>
