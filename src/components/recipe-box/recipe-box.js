@@ -17,7 +17,7 @@ var RecipeBox = React.createClass({
           count ++;
         }
       });
-      alert(this.props.recipe);
+      this.props.generalUpdate();
       
       
     },

@@ -46,10 +46,11 @@ var FullRecipe = React.createClass({
     },
     
     render: function() {
+        var genUpdate = this.generalUpdate;
         return (
             <div>
                 {Recipes.map(function(item, key) {
-                    return <RecipeBox recipe={Recipes} name={item.name} ingredients={item.ingredients} key={key}  />;
+                    return <RecipeBox recipe={Recipes} name={item.name} ingredients={item.ingredients} key={key} generalUpdate={genUpdate}  />;
                 })}
                 {this.state.addRecipeVisibility ? <AddRecipe closePopup={this.toggleVisibleAdd.bind(this)} recipeName={this.state.value} handleChangeName={this.handleChangeName} recipeIngredients={this.state.valueIngredients} handleChangeIngredients={this.handleChangeIngredients} recipe={Recipes} /> : undefined}
                 <button className="add-recipe btn" onClick={this.toggleVisibleAdd} >Add Recipe</button>
