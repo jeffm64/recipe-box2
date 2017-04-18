@@ -1,6 +1,10 @@
 var React = require("react");
 var jQuery = require("jquery");
 
+//current bug: having the same recipe name results in it always deleting the first one in the list
+//to fix you'll just need to add a key that has the recipe name plus a number, that number should increase
+//for each recipe. That way having the same name will result in "egg1" and "egg2" for example.
+
 
 var RecipeBox = React.createClass({
   
