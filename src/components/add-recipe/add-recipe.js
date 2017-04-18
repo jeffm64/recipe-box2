@@ -5,9 +5,8 @@ var AddRecipe = React.createClass({
   
     recipeCreate: function() {
       var splitter = this.props.recipeIngredients.split(",");
-      this.props.recipe.push( { name: this.props.recipeName, ingredients: splitter } );
+      this.props.recipe.push( { name: this.props.recipeName, ingredients: splitter, order: this.props.recipe.length } );
       this.props.closePopup();
-      alert(this.props.recipe[1].ingredients);
     },
   
     render: function() {

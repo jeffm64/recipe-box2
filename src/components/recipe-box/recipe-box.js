@@ -7,11 +7,11 @@ var RecipeBox = React.createClass({
     removeRecipe: function() {
 
       var count = 0;
-      var propName = this.props.name;
       var propRecipe = this.props.recipe;
+      var propOrder = this.props.order; 
       
       this.props.recipe.map(function (recipe) {
-        if (recipe.name === propName ) {
+        if (recipe.order === propOrder ) {
           propRecipe.splice(count, 1);
         } else {
           count ++;
