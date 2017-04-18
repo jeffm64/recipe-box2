@@ -5,7 +5,7 @@ var AddRecipe = React.createClass({
   
     recipeCreate: function() {
       var splitter = this.props.recipeIngredients.split(",");
-      this.props.recipe.push( { name: this.props.recipeName, ingredients: splitter, order: (this.props.recipeName + this.props.recipe.length) } );
+      this.props.recipe.push( { name: this.props.recipeName, ingredients: splitter, order: this.props.recipeName + (Math.floor(Math.random() * 1000) + 1) } );
       this.props.closePopup();
     },
   

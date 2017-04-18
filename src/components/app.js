@@ -5,8 +5,8 @@ var AddRecipe = require("./add-recipe/add-recipe.js");
 var EditRecipe = require("./recipe-box/edit-recipe");
 
 var Recipes = [
-    {name: "spaghetti", ingredients: [ "noodles", "tomato sauce", "meatballs" ], order: 0},
-    {name: "Omelet", ingredients: [ "eggs", "cheese" ], order: 1}
+    {name: "spaghetti", ingredients: [ "noodles", "tomato sauce", "meatballs" ], order: "spaghetti0"},
+    {name: "omelet", ingredients: [ "eggs", "cheese" ], order: "omelet1"}
 ];
 
 //insert <EditRecipe /> to see the box for editing recipe
