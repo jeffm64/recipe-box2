@@ -45,7 +45,7 @@ var RecipeBox = React.createClass({
                   <h3>Ingredients</h3>
                   <ul>{recipeItems}</ul>
                   <div className="buttons">
-                    <button className="edit btn"  onClick={this.props.openPopup} >Edit</button>
+                    <button className="edit btn"  onClick={this.props.closePopupEdit} >Edit</button>
                     <button className="delete btn" onClick={this.removeRecipe} >Delete</button>
                   </div>
                 </div>

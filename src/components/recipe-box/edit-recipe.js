@@ -27,7 +27,7 @@ var EditRecipe = React.createClass({
                   </div>
                   <div className="popup-buttons">
                     <button className="add-edit">Edit Recipe</button>
-                    <button className="close">Close</button>
+                    <button className="close" onClick={this.props.closePopupEdit} >Close</button>
                   </div>
               </div>
           </div>
