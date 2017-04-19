@@ -19,11 +19,11 @@ var EditRecipe = React.createClass({
                   <h3 className="popup-title">Edit a recipe</h3>
                   <div className="popup-recipe">
                     <h4>Recipe</h4>
-                    <input defaultValue={this.props.recipe[0].name} />
+                    <input defaultValue="Hello" />
                   </div>
                   <div className="popup-ingredients">
                     <h4>Ingredients</h4>
-                    <textarea rows="3" defaultValue={this.ingredientsList()}  ></textarea>
+                    <textarea rows="3" defaultValue="goodbye"  ></textarea>
                   </div>
                   <div className="popup-buttons">
                     <button className="add-edit">Edit Recipe</button>

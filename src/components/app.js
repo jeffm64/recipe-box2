@@ -33,6 +33,8 @@ var FullRecipe = React.createClass({
         }
     },
     
+    
+    
     handleChangeName: function(event) {
         this.setState({value: event.target.value});
     },
