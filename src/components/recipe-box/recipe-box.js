@@ -1,10 +1,16 @@
 var React = require("react");
+var EditRecipe = require("./edit-recipe");
 
 var RecipeBox = React.createClass({
   
     getInitialState: function() {
       return {
-        isOpen: false
+        isOpen: false,
+        editRecipeVisibility: false,
+        valueEdit: "",
+        valueIngredientsEdit: "",
+        recipeOrderName: this.props.order
+        
       };
     },
     
@@ -32,7 +38,17 @@ var RecipeBox = React.createClass({
       });
       this.props.generalUpdate();
       
-      
+    },
+    
+    toggleVisibleEdit: function() {
+    
+      if(this.state.editRecipeVisibility) {
+          this.setState({ editRecipeVisibility: false, valueEdit: "", valueIngredientsEdit: "" });
+      }
+      else {
+          this.setState({ editRecipeVisibility: true });
+          alert(this.state.recipeOrderName);
+      }
     },
   
     NumberList: function() {
@@ -45,7 +61,7 @@ var RecipeBox = React.createClass({
                   <h3>Ingredients</h3>
                   <ul>{recipeItems}</ul>
                   <div className="buttons">
-                    <button className="edit btn"  onClick={this.props.closePopupEdit} >Edit</button>
+                    <button className="edit btn"  onClick={this.toggleVisibleEdit} >Edit</button>
                     <button className="delete btn" onClick={this.removeRecipe} >Delete</button>
                   </div>
                 </div>
@@ -63,6 +79,7 @@ var RecipeBox = React.createClass({
                   </a>
                 </div>
                 {this.state.isOpen ? this.NumberList() : undefined}
+                {this.state.editRecipeVisibility ? <EditRecipe closePopupEdit={this.toggleVisibleEdit.bind(this)} recipe={this.props.recipe} name={this.props.name} ingredients={this.props.ingredients} order={this.props.order}  /> : undefined}
             </div>
             );
     }

@@ -16,7 +16,6 @@ var FullRecipe = React.createClass({
     getInitialState: function() {
         return {
             addRecipeVisibility: false,
-            editRecipeVisibility: false,
             value: "",
             valueIngredients: "",
             updater: ""
@@ -30,16 +29,6 @@ var FullRecipe = React.createClass({
         }
         else {
             this.setState({ addRecipeVisibility: true });
-        }
-    },
-    
-    toggleVisibleEdit: function() {
-        
-        if(this.state.editRecipeVisibility) {
-            this.setState({ editRecipeVisibility: false, value: "", valueIngredients: "" });
-        }
-        else {
-            this.setState({ editRecipeVisibility: true });
         }
     },
     
@@ -57,14 +46,13 @@ var FullRecipe = React.createClass({
     
     render: function() {
         var genUpdate = this.generalUpdate;
-        var editPopup = this.toggleVisibleEdit.bind(this);
+        
         return (
             <div>
                 {Recipes.map(function(item, key) {
-                    return <RecipeBox recipe={Recipes} name={item.name} ingredients={item.ingredients} order={item.order} key={key} closePopupEdit={editPopup} generalUpdate={genUpdate}  />;
+                    return <RecipeBox recipe={Recipes} name={item.name} ingredients={item.ingredients} order={item.order} key={key}  generalUpdate={genUpdate}  />;
                 })}
                 {this.state.addRecipeVisibility ? <AddRecipe closePopup={this.toggleVisibleAdd.bind(this)} recipeName={this.state.value} handleChangeName={this.handleChangeName} recipeIngredients={this.state.valueIngredients} handleChangeIngredients={this.handleChangeIngredients} recipe={Recipes} /> : undefined}
-                {this.state.editRecipeVisibility ? <EditRecipe closePopupEdit={this.toggleVisibleEdit.bind(this)}  /> : undefined}
                 <button className="add-recipe btn" onClick={this.toggleVisibleAdd} >Add Recipe</button>
             </div>
         );
